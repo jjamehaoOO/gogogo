@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        margin: auto;
+    }
+    .section_faq {
+       
+        /* 為何要設這兩個才margin: 50px auto;才會動 */
+    min-width: 300px;
+    max-width: 500px;
+    margin: 50px auto;
+    }
+    .expand_button::before,.expand_button::after{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 1px;
+        background-color: black;
+        right: 13%;
+        top:13px;;
+    }
+    .expand_button::after{
+        transform: rotate(90deg);
+    }
+    .faq_top{
+        position: relative;
+    }
+    .expand_button{
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 50%;
+        right: 0%;
+        position: absolute;
+        top: -10px;
+        
+    }
+    .faq_answer{
+        display: none;
+    }
+    .active{
+        /* 讓faq_answer的display:block */
+    }
+
+
+</style>
+
+<body>
+    <section class="section_faq">
+        <div class="container">
+          <h2 class="page_title">Frequently Asked Questions</h2>
+          <div class="faq">
+              <div class="faq_top">
+                  <div class="faq_title">Why is the moon sometimes out during the day?</div>
+                  <hr/>
+              <div class="expand_button">
+              </div>
+            </div>
+            <div class="faq_bottom">
+              <div class="faq_answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.
+              </div>
+            </div>
+          </div>
+    
+
+          <section class="section_faq">
+            <div class="container">
+              <h2 class="page_title">Frequently Asked Questions</h2>
+            </div>
+          </section>
+          <script>
+            const container = document.querySelector(".container");
+            let faqList = [
+                {
+                    title:"Why is the moon sometimes out during the day?",
+                    content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti."
+                },
+                {
+                    title: "Will we ever discover aliens?",
+                    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti."
+                },
+                {
+                    title: "How much does the Earth weigh?",
+                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti."
+                },
+                {
+                    title: "How do airplanes stay up?",
+                    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti."
+                }
+            ];
+
+            faqList.forEach((f) => {
+                let el = document.createElement("div");
+                container.appendChild(el);
+                el.outerHTML = `<div class="faq">
+                  <div class="faq_top">
+                    <div class="faq_title">${f.title}</div>
+                    <div class="expand_button">
+                  </div>
+                  </div>
+                    <div class="faq_bottom">
+                     <div class="faq_answer">${f.content}</div>
+                  </div>
+                  </div>`;
+            });
+            
+
+            let activeFaq = null;
+
+            container.addEventListener("click", (e) => {
+                const faq = e.target.closest(".faq");
+                if (activeFaq && activeFaq !== faq) {
+                    activeFaq.classList.remove("active");
+                }
+                faq.classList.toggle("active");
+                activeFaq = faq;
+            });      
+
+
+          </script>
+</body>
+</html>
