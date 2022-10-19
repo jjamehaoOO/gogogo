@@ -65,7 +65,7 @@ console.log(array); // [1, 2, 3, 4, 5], 原有 array 的不會被改變
 ### filter
 
 請設計一個 function `filter`
-- 接受 2 個參數，一個陣列與一個
+- 接受 2 個參數，一個陣列與一個 function
 - 回傳一個**新的陣列**
 - callback 回傳 boolean 值
 - 若 callback 回傳 true, 則陣列元素會被挑出來放入新的陣列，反之則否
