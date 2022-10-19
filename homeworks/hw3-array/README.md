@@ -6,6 +6,8 @@
 - map
 - filter
 - slice
+- every
+- some
 
 ### forEach
 
@@ -108,4 +110,58 @@ const end   = 4;
 const result = slice(array, start, end);
 console.log(result); // [2, 3, 4]
 console.log(array); // [1, 2, 3, 4, 5]
+```
+
+### every
+
+請設計一個 function `every`
+- 接受 2 個參數，一個陣列，一個 function callback
+- 回傳 boolean 值
+- 如果每個元素進入 callback 都回傳 true => 則 every 就回傳 true
+- 如果有其中任一或多個元素進入 callback 回傳 false => 則 every 回傳 false
+- 答案寫在 every.js
+
+範例：
+
+```javascript=
+function every(array, callback){
+    // ...
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [1, '2', 3, 4, 5];
+function callback(num) {
+    return typeof num === 'Number';
+}
+
+const result = every(array, callback);
+console.log(every(array1, callback)); // true
+console.log(every(array2, callback)); // false
+```
+
+### some
+
+請設計一個 function `some`
+- 接受 2 個參數，一個陣列，一個 function callback
+- 回傳 boolean 值
+- 只要有任一個元素進入 callback 回傳 true => 則 some 就回傳 true
+- 如果有全部元素進入 callback 都回傳 false => 則 some 回傳 false
+- 答案寫在 some.js
+
+範例：
+
+```javascript=
+function some(array, callback){
+    // ...
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [1, '2', 3, 4, 5];
+function callback(num) {
+    return typeof num === 'String';
+}
+
+const result = every(array, callback);
+console.log(every(array1, callback)); // false
+console.log(every(array2, callback)); // true
 ```
