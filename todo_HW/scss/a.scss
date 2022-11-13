@@ -1,0 +1,136 @@
+// .container{
+//     .top{
+//         .form{
+//             .add{
+//                 border-radius: 50px; 吃不到?
+//             }
+//         }
+//     }
+// }
+$color-bg:#5fd19e;
+body{
+    color:black;
+    background-color: $color-bg;
+    box-sizing: border-box;
+}
+
+.add{
+    border-radius: 50px;
+    margin-left: 10px;
+    
+}
+
+
+
+.container{
+    width: 300px;
+    border-radius: 20px;
+    // height: 330px;
+    margin: auto;
+    margin: 150px auto 0 auto;
+    background: #fff;
+    .top{
+        text-align: center;
+        
+        form{
+            // margin-top: 30px;
+            input{
+            border:none;
+            border-bottom: 1px solid $color-bg;
+            margin-top: 50px;
+            }
+            .add{
+                padding: 5px 10px;
+                color: $color-bg;
+                border: 1px solid $color-bg;
+            }
+            
+            }
+
+        }
+    }
+    .middle{
+        // text-align: center;
+        // width: 865px;
+        margin: 40px 0 40px 40px;
+        .todo{
+            margin-right: 140px;
+            margin-top: 20px;
+            position: relative;
+            .title{
+                color: $color-bg;
+            }
+            .complete::before{
+                width: 10px;
+                height: 1px;
+                display: inline-block;
+                content: '';
+                position: absolute;
+                background: $color-bg;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                // margin: 3px 1px 0 141px;
+                cursor: pointer;
+                left: 117%;
+                bottom: 15%;
+                padding-top: 1.5px;
+            }
+            .complete::after{
+                width: 20px;
+                height: 1px;
+                display: inline-block;
+                content: '';
+                position: absolute;
+                color: black;
+                background: $color-bg;
+                transform: rotate(135deg);
+                // margin: 0 0 0 146px;
+                cursor: pointer;
+                padding-top: 1.5px;
+                left: 121%;
+                bottom: 35%;
+            }
+            .delete::before,.delete::after{
+                width: 20px;
+                height: 1px;
+                display: inline-block;
+                content: '';
+                position: absolute;
+                background: red;
+                transform: rotate(135deg);
+                // margin: 0 0 0 170px;
+                cursor: pointer;
+                padding-top: 1.5px;
+                left: 145%;
+                bottom: 35%;
+                
+            }
+            .delete::before{
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .bottom{
+        // width: 1020px;
+        text-align: center;
+        padding-bottom: 10%;
+        .filter{
+            padding: 5px 10px;
+            margin-right: 20px;
+            border-radius: 50px;
+            color: $color-bg;
+            border: 1px solid $color-bg;
+        }
+    }
+    
+
+    .todo-completed{
+        text-decoration: line-through;    
+        color: $color-bg;
+    }
+
+
+
+
+
+
